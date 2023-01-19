@@ -6,12 +6,20 @@ const games = [{
     title: "Stop",
     img: "/images/games/stop.avif",
     description: "También conocido como Tutti frutti, Alto el fuego, Basta o al Lápiz quieto"
+}, {
+    title: "Sudoku",
+    img: "/images/games/sudoku.avif",
+    description: "Uno de los juegos de puzle más populares de todos los tiempos"
+}, {
+    title: "3 en linea",
+    img: "/images/games/3-en-raya.avif",
+    description: "También conocido como Tic-tac-toe, tres en raya, o Xs y Os"
 }]
 
 ---
 
 <div>
-    <h1 class="text-2xl">Próximos Juegos</h1>
+    <h1 class="text-2xl font-bold">Próximos Juegos</h1>
     <CardList>
         {games.map(game => (
             <Card
