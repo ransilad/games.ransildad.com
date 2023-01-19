@@ -1,6 +1,8 @@
 ---
 // import AvailableGames from "../components/AvailableGames.astro";
+import BgAnimation from "../components/BgAnimation.astro";
 import UpcomingGames from "../components/UpcomingGames.astro";
+import './index.css'
 ---
 
 <html lang="en">
@@ -11,7 +13,8 @@ import UpcomingGames from "../components/UpcomingGames.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>ransilad's games</title>
 	</head>
-	<body class="h-full bg-gray-300 text-gray-800">
+	<body class="h-full area-bg text-white">
+		<BgAnimation />
 		<div class="w-10/12 md:w-2/3 mx-auto py-10">
 			<!-- <AvailableGames /> -->
 			<UpcomingGames />
