@@ -1,3 +1,24 @@
-<div class="mt-20">
-    <h1 class="text-xl">Próximos Juegos</h1>
+---
+import Card from "./Card.astro";
+import CardList from "./CardList.astro";
+
+const games = [{
+    title: "Stop",
+    img: "/images/games/stop.avif",
+    description: "También conocido como Tutti frutti, Alto el fuego, Basta o al Lápiz quieto"
+}]
+
+---
+
+<div>
+    <h1 class="text-xl lg:text-2xl">Próximos Juegos</h1>
+    <CardList>
+        {games.map(game => (
+            <Card
+                title={game.title}
+                img={game.img}
+                description={game.description}
+            />
+        ))}
+    </CardList>
 </div>
