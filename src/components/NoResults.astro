@@ -1,0 +1,7 @@
+---
+const { title } = Astro.props
+---
+<div class="w-100 flex justify-center items-center flex-col my-12">
+    <img src="/images/undraw_programming.svg" class="w-1/2">
+    <p class="text-md text-gray-600 font-light italic mt-3">{title || 'No hay resultados'}</p>
+</div>
