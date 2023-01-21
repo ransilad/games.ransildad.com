@@ -3,26 +3,25 @@ import Card from "./Card.astro";
 import CardList from "./CardList.astro";
 
 const games = [{
+    id: "stop",
     title: "Stop",
     img: "/images/games/stop.avif",
     description: "También conocido como Tutti frutti, Alto el fuego, Basta o al Lápiz quieto"
 }, {
+    id: "sudoku",
     title: "Sudoku",
     img: "/images/games/sudoku.avif",
     description: "Uno de los juegos de puzle más populares de todos los tiempos"
-}, {
-    title: "3 en linea",
-    img: "/images/games/3-en-raya.avif",
-    description: "También conocido como Tic-tac-toe, tres en raya, o Xs y Os"
 }]
 
 ---
 
-<div>
+<div class="mt-10">
     <h1 class="text-2xl md:text-3xl font-bold">Próximos Juegos</h1>
     <CardList>
         {games.map(game => (
             <Card
+                id={game.id}
                 title={game.title}
                 img={game.img}
                 description={game.description}

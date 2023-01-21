@@ -1,3 +1,26 @@
+---
+import Card from "./Card.astro";
+import CardList from "./CardList.astro";
+
+const games = [{
+    id:"tres-en-raya",
+    title: "3 en linea",
+    img: "/images/games/3-en-raya.avif",
+    description: "También conocido como Tic-tac-toe, tres en raya, o Xs y Os",
+    link: "https://tres-en-raya.ransilad.com/"
+}]
+---
 <div>
-    <h1 class="text-xl">Juegos disponibles</h1>
+    <h1 class="text-2xl md:text-3xl font-bold">Juegos disponibles</h1>
+    <CardList>
+        {games.map(game => (
+            <Card
+                id={game.id}
+                title={game.title}
+                img={game.img}
+                description={game.description}
+                link={game.link}
+            />
+        ))}
+    </CardList>
 </div>
