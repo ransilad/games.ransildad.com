@@ -53,7 +53,7 @@ src/
 
 ## Enlaces De Juegos
 
-- `Tres en Raya` vive en un proyecto separado y se enlaza externamente en `https://tres-en-raya.ransilad.com/`.
+- `Tres en Raya` vive en un proyecto separado, tiene opción de jugar en línea y se enlaza externamente en `https://tres-en-raya.ransilad.com/`.
 - Este repositorio no debe contener una página local `/tres-en-raya/`.
 
 ## Notas

@@ -6,12 +6,12 @@ const games = [
 		title: 'Tres en Raya',
 		status: 'Listo para jugar',
 		state: 'live',
-		type: 'Duelo táctico',
+		type: 'Duelo táctico online',
 		description:
-			'El clásico duelo de ingenio reimaginado como una partida rápida, pulida y lista para competir contra otra mente estratégica.',
+			'El clásico duelo de ingenio reimaginado como una partida rápida, pulida y lista para competir en línea contra otra mente estratégica.',
 		cta: 'Jugar ahora',
 		href: 'https://tres-en-raya.ransilad.com/',
-		meta: ['2 jugadores', 'Clásico', 'Estrategia'],
+		meta: ['2 jugadores', 'Online', 'Estrategia'],
 		progress: null,
 	},
 	{
@@ -50,7 +50,7 @@ const jsonLd = {
 	url: canonicalUrl,
 	inLanguage: 'es-MX',
 	description:
-		'Catálogo de juegos independientes de ransilad con títulos jugables, proyectos en desarrollo y próximos lanzamientos.',
+		'Catálogo de juegos independientes de ransilad con títulos jugables en línea, proyectos en desarrollo y próximos lanzamientos.',
 	about: {
 		'@type': 'Thing',
 		name: 'Juegos independientes',
@@ -76,7 +76,7 @@ const jsonLd = {
 
 <Layout
 	title="ransilad Games | Juegos independientes web"
-	description="Explora juegos independientes de ransilad: Tres en Raya, Stop, El Ahorcado y próximos títulos web para jugar con amigos."
+	description="Explora juegos independientes de ransilad: Tres en Raya con modo en línea, Stop, El Ahorcado y próximos títulos web para jugar con amigos."
 	canonical="/"
 >
 	<script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
