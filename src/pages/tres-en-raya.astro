@@ -1,0 +1,265 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+	title="Tres en Raya | Ransilad Games"
+	description="Juega Tres en Raya, un duelo táctico clásico dentro del universo Ransilad Games."
+	image="/games/og-image.webp"
+>
+	<main class="game-shell">
+		<a class="back-link" href="/">← Volver al arcade</a>
+
+		<section class="game-panel" aria-labelledby="game-title">
+			<div class="intro">
+				<p class="eyebrow">Juego en vivo</p>
+				<h1 id="game-title">Tres en Raya</h1>
+				<p>
+					Alterna turnos entre X y O. El primero en dominar una línea horizontal,
+					vertical o diagonal gana la ronda.
+				</p>
+			</div>
+
+			<div class="board-card" aria-live="polite">
+				<p id="game-status" class="status">Turno de X</p>
+				<div class="board" role="grid" aria-label="Tablero de Tres en Raya">
+					{
+						Array.from({ length: 9 }).map((_, index) => (
+							<button
+								class="cell"
+								type="button"
+								role="gridcell"
+								data-cell
+								data-index={index}
+								aria-label={`Casilla ${index + 1}`}
+							/>
+						))
+					}
+				</div>
+				<button id="reset-game" class="reset-button" type="button">Reiniciar partida</button>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<script>
+	const cells = Array.from(document.querySelectorAll('[data-cell]'));
+	const status = document.querySelector('#game-status');
+	const reset = document.querySelector('#reset-game');
+	const wins = [
+		[0, 1, 2],
+		[3, 4, 5],
+		[6, 7, 8],
+		[0, 3, 6],
+		[1, 4, 7],
+		[2, 5, 8],
+		[0, 4, 8],
+		[2, 4, 6],
+	];
+
+	let board = Array(9).fill('');
+	let current = 'X';
+	let finished = false;
+
+	function setStatus(message: string) {
+		if (status) status.textContent = message;
+	}
+
+	function getWinner() {
+		return wins.find(([a, b, c]) => board[a] && board[a] === board[b] && board[a] === board[c]);
+	}
+
+	function handleTurn(event: Event) {
+		const cell = event.currentTarget as HTMLButtonElement;
+		const index = Number(cell.dataset.index);
+
+		if (finished || board[index]) return;
+
+		board[index] = current;
+		cell.textContent = current;
+		cell.setAttribute('aria-label', `Casilla ${index + 1}: ${current}`);
+
+		const winner = getWinner();
+		if (winner) {
+			finished = true;
+			winner.forEach((winnerIndex) => cells[winnerIndex].classList.add('winner'));
+			setStatus(`${current} gana la ronda`);
+			return;
+		}
+
+		if (board.every(Boolean)) {
+			finished = true;
+			setStatus('Empate táctico');
+			return;
+		}
+
+		current = current === 'X' ? 'O' : 'X';
+		setStatus(`Turno de ${current}`);
+	}
+
+	function resetGame() {
+		board = Array(9).fill('');
+		current = 'X';
+		finished = false;
+		cells.forEach((cell, index) => {
+			cell.textContent = '';
+			cell.classList.remove('winner');
+			cell.setAttribute('aria-label', `Casilla ${index + 1}`);
+		});
+		setStatus('Turno de X');
+	}
+
+	cells.forEach((cell) => cell.addEventListener('click', handleTurn));
+	reset?.addEventListener('click', resetGame);
+</script>
+
+<style>
+	:global(body) {
+		color: #dae2fd;
+		font-family: 'Plus Jakarta Sans', 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+		background: #060e20;
+	}
+
+	:global(:focus-visible) {
+		outline: 3px solid #4edea3;
+		outline-offset: 4px;
+	}
+
+	.game-shell {
+		min-height: 100vh;
+		padding: 32px clamp(18px, 5vw, 80px) 64px;
+		background:
+			radial-gradient(circle at 18% 14%, rgba(208, 188, 255, 0.18), transparent 28%),
+			radial-gradient(circle at 85% 86%, rgba(78, 222, 163, 0.16), transparent 28%),
+			linear-gradient(135deg, #060e20, #0b1326 52%, #131b2e);
+	}
+
+	.back-link {
+		display: inline-flex;
+		margin-bottom: 44px;
+		color: #4edea3;
+		font-family: 'JetBrains Mono', monospace;
+		font-size: 0.78rem;
+		font-weight: 800;
+		letter-spacing: 0.1em;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	.game-panel {
+		display: grid;
+		grid-template-columns: minmax(0, 0.8fr) minmax(320px, 520px);
+		gap: clamp(32px, 7vw, 96px);
+		align-items: center;
+		width: min(100%, 1180px);
+		margin: 0 auto;
+	}
+
+	.eyebrow,
+	.status,
+	.reset-button {
+		font-family: 'JetBrains Mono', monospace;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+	}
+
+	.eyebrow {
+		margin: 0 0 18px;
+		color: #4edea3;
+		font-size: 0.76rem;
+	}
+
+	h1 {
+		margin: 0;
+		color: #f3f5ff;
+		font-family: Sora, 'Archivo Black', sans-serif;
+		font-size: clamp(3.5rem, 9vw, 8rem);
+		line-height: 0.95;
+		letter-spacing: -0.08em;
+	}
+
+	.intro p:last-child {
+		max-width: 620px;
+		margin: 26px 0 0;
+		color: #cbc3d7;
+		font-size: clamp(1rem, 2vw, 1.25rem);
+		line-height: 1.75;
+	}
+
+	.board-card {
+		padding: clamp(20px, 4vw, 36px);
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		border-radius: 28px;
+		background: linear-gradient(145deg, rgba(34, 42, 61, 0.78), rgba(19, 27, 46, 0.62));
+		box-shadow: 0 34px 90px rgba(0, 0, 0, 0.36);
+		backdrop-filter: blur(28px);
+	}
+
+	.status {
+		margin: 0 0 20px;
+		color: #d0bcff;
+		font-size: 0.82rem;
+	}
+
+	.board {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(82px, 1fr));
+		gap: 12px;
+	}
+
+	.cell {
+		aspect-ratio: 1;
+		border: 1px solid rgba(255, 255, 255, 0.16);
+		border-radius: 18px;
+		background: rgba(255, 255, 255, 0.055);
+		color: #f3f5ff;
+		font-family: Sora, sans-serif;
+		font-size: clamp(2.4rem, 8vw, 5rem);
+		font-weight: 800;
+		cursor: pointer;
+		transition:
+			border-color 0.2s ease,
+			background 0.2s ease,
+			transform 0.2s ease;
+	}
+
+	.cell:hover {
+		border-color: rgba(78, 222, 163, 0.55);
+		background: rgba(78, 222, 163, 0.08);
+		transform: translateY(-2px);
+	}
+
+	.cell.winner {
+		border-color: #4edea3;
+		background: rgba(78, 222, 163, 0.18);
+		color: #4edea3;
+	}
+
+	.reset-button {
+		margin-top: 22px;
+		padding: 14px 16px;
+		border: 1px solid rgba(208, 188, 255, 0.42);
+		border-radius: 10px;
+		background: rgba(208, 188, 255, 0.1);
+		color: #f3f5ff;
+		cursor: pointer;
+	}
+
+	.reset-button:hover {
+		border-color: #4edea3;
+	}
+
+	@media (max-width: 860px) {
+		.game-panel {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 520px) {
+		.board {
+			grid-template-columns: repeat(3, minmax(64px, 1fr));
+			gap: 8px;
+		}
+	}
+</style>

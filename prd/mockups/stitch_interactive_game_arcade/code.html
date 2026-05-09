@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MY GAME UNIVERSE | NEON PULSE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#0a0e17",
+                        "primary-container": "#4fd1ed",
+                        "secondary-fixed": "#ffd9df",
+                        "inverse-on-surface": "#2c303a",
+                        "background": "#0f131c",
+                        "surface-variant": "#31353f",
+                        "inverse-primary": "#006879",
+                        "outline-variant": "#3d494c",
+                        "on-secondary-container": "#ff9cb0",
+                        "primary": "#96eaff",
+                        "secondary-container": "#8b1b40",
+                        "error": "#ffb4ab",
+                        "surface-container-highest": "#31353f",
+                        "surface-container": "#1c1f29",
+                        "surface-tint": "#56d6f2",
+                        "on-tertiary": "#2b3040",
+                        "surface-container-low": "#181b25",
+                        "on-secondary-fixed": "#3f0016",
+                        "on-primary-fixed": "#001f26",
+                        "on-surface": "#dfe2ef",
+                        "on-secondary-fixed-variant": "#88183e",
+                        "primary-fixed": "#aaedff",
+                        "on-tertiary-fixed-variant": "#414657",
+                        "on-surface-variant": "#bcc9cd",
+                        "on-error": "#690005",
+                        "on-background": "#dfe2ef",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-container": "#494e5f",
+                        "surface-bright": "#353943",
+                        "on-secondary": "#660029",
+                        "tertiary-fixed": "#dee2f7",
+                        "on-primary-fixed-variant": "#004e5c",
+                        "inverse-surface": "#dfe2ef",
+                        "surface": "#0f131c",
+                        "on-primary": "#003640",
+                        "on-tertiary-fixed": "#161b2a",
+                        "tertiary-fixed-dim": "#c1c6da",
+                        "secondary": "#ffb1c0",
+                        "surface-container-high": "#262a34",
+                        "on-primary-container": "#005766",
+                        "tertiary": "#d8dcf1",
+                        "surface-dim": "#0f131c",
+                        "primary-fixed-dim": "#56d6f2",
+                        "outline": "#869397",
+                        "tertiary-container": "#bcc0d4",
+                        "secondary-fixed-dim": "#ffb1c0",
+                        "error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "32px",
+                        "stack-md": "16px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "stack-xl": "64px",
+                        "margin-desktop": "48px",
+                        "stack-sm": "8px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Sora"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Sora"],
+                        "headline-xl": ["Sora"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "title-md": ["Sora"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-xl": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "title-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sophisticated-card {
+            background: #1c1f29;
+            border: 1px solid #3d494c;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen selection:bg-primary selection:text-on-primary">
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-xl flex flex-col items-center justify-center min-h-screen">
+<!-- Hero Section -->
+<section class="mb-stack-lg relative py-12 flex flex-col items-center text-center w-full">
+<h1 class="font-headline-xl text-headline-xl text-on-background mb-stack-md">MI UNIVERSO <span class="text-primary">DE JUEGOS</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-stack-lg">Entra en una dimensión sofisticada donde el espíritu competitivo se une al diseño refinado. Explora un portafolio de títulos independientes de alto rendimiento creados para la próxima generación de jugadores.</p>
+<!-- Search Bar Section -->
+<div class="w-full max-w-xl mx-auto relative">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline">search</span>
+</div>
+<input class="w-full bg-surface-container-low border border-outline-variant rounded-lg py-4 pl-12 pr-4 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all font-label-sm tracking-wider" placeholder="BUSCAR TU PRÓXIMA AVENTURA..." type="text"/>
+</div>
+</section>
+<!-- Games Grid -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mt-stack-xl w-full">
+<!-- Tres en Raya - Primary Feature -->
+<div class="md:col-span-8 group">
+<div class="sophisticated-card rounded-xl overflow-hidden transition-all duration-300 hover:border-primary/30 h-full flex flex-col md:flex-row">
+<div class="w-full md:w-3/5 h-64 md:h-auto relative overflow-hidden hover:grayscale-0 transition-all duration-700">
+<img alt="Tres en Raya Game Preview" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0ujTXOrwAgVAPqV-hgeT3ocauTWlARY7jx26zrHT_lmKxcp0sld3f1p2cINgpvpYDV2lpaZ7YLDwZqe4S-v5JJvmfm6ztLqa12PyhcNVc-dzUk7dCs55g8k2Gj54C7PAiw9CtbL3qLT6yFch1jtRrzdOwpqTCqcIcw8HBH3-VoKfEXqQ4ELheMO5RvXYZNBVYy3ZDG4Tdj7W2aCN-ZtnzFzE9Gbozadi5oS0ZolzwwUAfDIgYgmVtEziMfEH24ssQFKWDOXXI5JPIA"/>
+</div>
+<div class="w-full md:w-2/5 p-stack-lg flex flex-col justify-center bg-surface-container-high/50">
+<span class="font-label-sm text-label-sm text-primary mb-stack-sm flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-primary"></span> EN VIVO</span>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-stack-md">Tres en Raya</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg">Vive el juego clásico reinventado con visuales de alta fidelidad y paisajes sonoros inmersivos. Desafía a tus amigos en una batalla de ingenio.</p>
+<button class="w-fit border border-outline text-on-surface font-label-sm px-stack-lg py-stack-md rounded transition-all duration-300 hover:border-primary hover:text-primary">JUGAR AHORA</button>
+</div>
+</div>
+</div>
+<!-- Side column for other games -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<!-- Stop (Bachillerato) -->
+<div class="group">
+<div class="sophisticated-card rounded-xl p-stack-lg flex flex-col h-full transition-all duration-300 hover:border-secondary/30">
+<div class="flex justify-between items-start mb-stack-lg">
+<div class="w-12 h-12 rounded bg-surface-variant flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">edit</span>
+</div>
+<span class="bg-surface-variant text-on-surface-variant font-label-sm text-[10px] px-2 py-1 rounded">PRÓXIMAMENTE</span>
+</div>
+<h3 class="font-headline-lg text-title-md text-on-background mb-stack-sm">Stop (Bachillerato)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">El desafío de palabras definitivo. Compite contra el reloj para completar las categorías antes que tus rivales.</p>
+<div class="mt-auto pt-stack-md border-t border-outline-variant">
+<span class="font-label-sm text-[11px] text-outline tracking-widest">LISTA DE DESEOS PARA DESBLOQUEAR</span>
+</div>
+</div>
+</div>
+<!-- El Ahorcado -->
+<div class="group">
+<div class="sophisticated-card rounded-xl p-stack-lg flex flex-col h-full transition-all duration-300 hover:border-primary/30">
+<div class="flex justify-between items-start mb-stack-lg">
+<div class="w-12 h-12 rounded bg-surface-variant flex items-center justify-center border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant">psychology</span>
+</div>
+<span class="bg-surface-variant text-on-surface-variant font-label-sm text-[10px] px-2 py-1 rounded">EN DESARROLLO</span>
+</div>
+<h3 class="font-headline-lg text-title-md text-on-background mb-stack-sm">El Ahorcado</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">Una reinvención del clásico juego del ahorcado con vocabulario procedimental y diseño refinado.</p>
+<div class="mt-auto pt-stack-md border-t border-outline-variant">
+<div class="w-full bg-outline-variant h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[65%]"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="font-label-sm text-[10px] text-primary">65% COMPLETADO</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</body></html>
