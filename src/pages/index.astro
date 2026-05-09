@@ -42,12 +42,44 @@ const games = [
 
 const featuredGame = games[0];
 const secondaryGames = games.slice(1);
+const canonicalUrl = 'https://games.ransilad.com/';
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'CollectionPage',
+	name: 'ransilad Games',
+	url: canonicalUrl,
+	inLanguage: 'es-MX',
+	description:
+		'Catálogo de juegos independientes de ransilad con títulos jugables, proyectos en desarrollo y próximos lanzamientos.',
+	about: {
+		'@type': 'Thing',
+		name: 'Juegos independientes',
+	},
+	mainEntity: {
+		'@type': 'ItemList',
+		name: 'Juegos de ransilad',
+		itemListElement: games.map((game, index) => ({
+			'@type': 'ListItem',
+			position: index + 1,
+			item: {
+				'@type': 'VideoGame',
+				name: game.title,
+				description: game.description,
+				url: game.href ?? canonicalUrl,
+				applicationCategory: 'Game',
+				gamePlatform: 'Web browser',
+			},
+		})),
+	},
+};
 ---
 
 <Layout
-	title="Ransilad Games | Universo de Juegos"
-	description="Explora el universo de juegos independientes de Ransilad: títulos jugables, proyectos en desarrollo y próximos lanzamientos."
+	title="ransilad Games | Juegos independientes web"
+	description="Explora juegos independientes de ransilad: Tres en Raya, Stop, El Ahorcado y próximos títulos web para jugar con amigos."
+	canonical="/"
 >
+	<script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 	<main class="arcade-shell">
 		<section class="hero" aria-labelledby="page-title">
 			<p class="eyebrow">Archivo interactivo / juegos de autor</p>
